@@ -49,6 +49,7 @@ client.on('message', message => {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("News")
+	  .addField("04-03-18", "Changement d'hebergeur
 	  .addField("03-03-18", "La bêta 1.0 est sortie\n`par Zenka`")
 	  .addField("03-03-18", "Début du code de la Bêta 1.0\n`par Boasty`")
 	  .addField("03-03-18", "Zenka est Admin\n`par BlastyBot`")
@@ -64,7 +65,7 @@ client.on('message', message => {
 	  .setColor("247CFF")
 	  .setTitle("Rublux")
 	  .setImage("http://wiki.roblox.com/images/5/59/NetworkPhysicsSolution1.gif")
-	  .setFooter(message.author.username + " | b!roblox | Blasty " + BotVersion + " | © BlastyBot 2018-2019")
+	  .setFooter(message.author.username + " | b!roblox | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
     //message.channel.send('Rublux http://wiki.roblox.com/images/5/59/NetworkPhysicsSolution1.gif')
   }
@@ -76,8 +77,8 @@ client.on('message', message => {
 	  .setTitle("Info")
 	  .addField("Utilisateurs", "user : " + client.users.size + "utilisateurs\nServer : " + client.guilds.size + "servers")
 	  .addField("Version", "BlastyBot " + BotVersion)
-	  .addField("Hébergement", "Le bot est hébergé sur Tmi.")
-	  .setFooter(message.author.username + " | b!info | Blasty " + BotVersion + " | © BlastyBot 2018-2019")
+	  .addField("Hébergement", "Le bot est hébergé sur Heroku.")
+	  .setFooter(message.author.username + " | b!info | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
     //message.channel.send('```Nom: BlastyBot. Creer par Boasty. Heberger sur le serveur de TMI. V0.4```')
   }
