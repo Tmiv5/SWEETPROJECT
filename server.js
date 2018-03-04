@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 // VAR
-var BotVersion = ("V 1.0 bêta")
+var BotVersion = ("1.0 bêta")
 // Bot on ready
 client.on('ready', () => {
 	client.user.setPresence({ game: { name: "b!help || "+ client.guilds.size + "servers !" , type : 0}}); {}
@@ -19,7 +19,7 @@ client.on('message', message => {
   if (message.content === 'b!help') {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
-	  .setTitle("Blasty Bot")
+	  .setTitle("BlastyBot")
 	  .addField("Aide", "`b!help`, `b!news`, `b!info`, `b!support`, `b!invite`")
 	  .addField("Fun", "`b!roblox`, `b!pingpong`")
 	  .setImage("https://tmiv5.weebly.com/uploads/5/5/6/5/55652459/blasty-bot-by-zenka_orig.png")
