@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 // VAR
-var BotVersion = ("V 1.0 bêta")
+var BotVersion = ("1.0 bêta")
 // Bot on ready
 client.on('ready', () => {
 	client.user.setPresence({ game: { name: "b!help || "+ client.guilds.size + "servers !" , type : 0}}); {}
@@ -23,7 +23,7 @@ client.on('message', message => {
 	  .addField("Aide", "`b!help`, `b!news`, `b!info`, `b!support`, `b!invite`")
 	  .addField("Fun", "`b!roblox`, `b!pingpong`")
 	  .setImage("https://tmiv5.weebly.com/uploads/5/5/6/5/55652459/blasty-bot-by-zenka_orig.png")
-	  .setFooter(message.author.username + " | b!help | Blasty " + BotVersion + " | © BlastyBot 2018-2019")
+	  .setFooter(message.author.username + " | b!help | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
     //message.channel.send('Message d`aide de BlastyBot, ```b!help : affiche ce message.\nb!ping : Affiçhe le ping.\nb!pingpong: Fais Ping-Pong!\nb!news: Donne les news du bot.\nb!roblox : Un gif roblox.\nb!info : Info a propos du bot\nb!support: Donne un serveur daide.\nb!invite : Invite le bot sur votre serveur.```\n\nBlastyBot V0.4');
   
@@ -53,7 +53,7 @@ client.on('message', message => {
 	  .addField("03-03-18", "Début du code de la Bêta 1.0\n`par Boasty`")
 	  .addField("03-03-18", "Zenka est Admin\n`par BlastyBot`")
 	  .addField("02-03-18", "Sortie de la 0.4\n`par Boasty`")
-	  .setFooter(message.author.username + " | b!news | Blasty " + BotVersion + " | © BlastyBot 2018-2019")
+	  .setFooter(message.author.username + " | b!news | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
   //  message.channel.send('**NEWS**\nSortie de la V0.4.\nDev de la 1.0 beta bientot.')
   }
@@ -64,7 +64,7 @@ client.on('message', message => {
 	  .setColor("247CFF")
 	  .setTitle("Rublux")
 	  .setImage("http://wiki.roblox.com/images/5/59/NetworkPhysicsSolution1.gif")
-	  .setFooter(message.author.username + " | b!roblox | Blasty " + BotVersion + " | © BlastyBot 2018-2019")
+	  .setFooter(message.author.username + " | b!roblox | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
     //message.channel.send('Rublux http://wiki.roblox.com/images/5/59/NetworkPhysicsSolution1.gif')
   }
@@ -76,8 +76,8 @@ client.on('message', message => {
 	  .setTitle("Info")
 	  .addField("Utilisateurs", "user : " + client.users.size + "utilisateurs\nServer : " + client.guilds.size + "servers")
 	  .addField("Version", "BlastyBot " + BotVersion)
-	  .addField("Hébergement", "Le bot est hébergé sur Tmi.")
-	  .setFooter(message.author.username + " | b!info | Blasty " + BotVersion + " | © BlastyBot 2018-2019")
+	  .addField("Hébergement", "Le bot est hébergé sur l'espace Heroku de BlastyBot.")
+	  .setFooter(message.author.username + " | b!info | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
     //message.channel.send('```Nom: BlastyBot. Creer par Boasty. Heberger sur le serveur de TMI. V0.4```')
   }
