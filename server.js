@@ -19,7 +19,7 @@ client.on('message', message => {
   if (message.content === 'b!help') {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
-	  .setTitle("Blasty Bot")
+	  .setTitle("BlastyBot")
 	  .addField("Aide", "`b!help`, `b!news`, `b!info`, `b!support`, `b!invite`")
 	  .addField("Fun", "`b!roblox`, `b!pingpong`")
 	  .setImage("https://tmiv5.weebly.com/uploads/5/5/6/5/55652459/blasty-bot-by-zenka_orig.png")
@@ -49,6 +49,7 @@ client.on('message', message => {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("News")
+	  .addField("06-03-18", "Changement d'hebergeur vers Heroku\n `par Boasty`")
 	  .addField("03-03-18", "La bêta 1.0 est sortie\n`par Zenka`")
 	  .addField("03-03-18", "Début du code de la Bêta 1.0\n`par Boasty`")
 	  .addField("03-03-18", "Zenka est Admin\n`par BlastyBot`")
