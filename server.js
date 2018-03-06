@@ -41,7 +41,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
   if (message.content === 'b!ping') {
-    message.channel.send(``new Date().getTime() - message.createdTimestamp + " ms"``);
+    message.channel.send(new Date().getTime() - message.createdTimestamp + " ms");
   }
 });
 client.on('message', message => {
