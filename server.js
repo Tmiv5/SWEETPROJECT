@@ -22,7 +22,7 @@ client.on('message', message => {
 	  .setTitle("BlastyBot")
 	  .addField("Aide", "`b!help`, `b!news`, `b!info`, `b!support`, `b!invite`")
 	  .addField("Fun", "`b!roblox`, `b!pingpong`")
-	  .addField("NSFW", "`b!boobs`, `b!dick`, `plus a venir....`
+	  .addField("NSFW", "`b!boobs`, `b!dick`, `plus a venir....`")
 	  .setImage("https://tmiv5.weebly.com/uploads/5/5/6/5/55652459/blasty-bot-by-zenka_orig.png")
 	  .setFooter(message.author.username + " | b!help | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
