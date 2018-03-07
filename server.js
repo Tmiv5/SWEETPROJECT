@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 // VAR
-var BotVersion = ("1.0 bêta + NSFW Update")
+var BotVersion = ("1.0 bêta")
 // Bot on ready
 client.on('ready', () => {
 	client.user.setPresence({ game: { name: "b!help || "+ client.guilds.size + "serveurs!" , type : 0}}); {}
@@ -22,7 +22,6 @@ client.on('message', message => {
 	  .setTitle("BlastyBot")
 	  .addField("Aide", "`b!help`, `b!news`, `b!info`, `b!support`, `b!invite`")
 	  .addField("Fun", "`b!roblox`, `b!pingpong`")
-	  .addField("NSFW", "`b!boobs`, `b!dick`, `plus a venir....`")
 	  .setImage("https://tmiv5.weebly.com/uploads/5/5/6/5/55652459/blasty-bot-by-zenka_orig.png")
 	  .setFooter(message.author.username + " | b!help | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
@@ -50,6 +49,7 @@ client.on('message', message => {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("News")
+	  .addField("07-03-18", "Enlevement des commandes NSFW\n`par Boasty`")
 	  .addField("07-03-18", "Sortie de la NSFW Update\n`par Boasty`")
 	  .addField("06-03-18", "Changement d'hebergeur vers Heroku\n`par Boasty`")
 	  .addField("03-03-18", "La bêta 1.0 est sortie\n`par Zenka`")
@@ -69,17 +69,7 @@ client.on('message', message => {
 	  .setImage("http://wiki.roblox.com/images/5/59/NetworkPhysicsSolution1.gif")
 	  .setFooter(message.author.username + " | b!roblox | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
-    //message.channel.send('Rublux http://wiki.roblox.com/images/5/59/NetworkPhysicsSolution1.gif')
-  }
-});
-client.on('message', message => {
-  if (message.content === 'b!boobs') {
-	  var help_embed = new Discord.RichEmbed()
-	  .setColor("68bf41")
-	  .setTitle("Boobs")
-	  .setImage("https://media.giphy.com/media/qBDvdPW9CEovu/giphy.gif")
-	  .setFooter(message.author.username + " | b!boobs | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
-	  message.channel.sendEmbed(help_embed);
+    //message.channel.send('Rublux http://wiki.roblox.com/images/5/59/NetworkPhysicsSolutions1
   }
 });
 client.on('message', message => {
