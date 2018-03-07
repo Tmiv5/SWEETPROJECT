@@ -50,6 +50,7 @@ client.on('message', message => {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("News")
+	  .addField("07-03-18", "Sortie de la NSFW Update\n`par Boasty`")
 	  .addField("06-03-18", "Changement d'hebergeur vers Heroku\n`par Boasty`")
 	  .addField("03-03-18", "La bêta 1.0 est sortie\n`par Zenka`")
 	  .addField("03-03-18", "Début du code de la Bêta 1.0\n`par Boasty`")
