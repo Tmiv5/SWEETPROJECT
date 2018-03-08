@@ -82,14 +82,7 @@ client.on('message', message => {
 	  .addField("Hébergement", "Le bot est hébergé sur l'espace Heroku de BlastyBot.")
 	  .setFooter(message.author.username + " | b!info | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
-    //message.channel.send('```Nom: BlastyBot. Creer par Boasty. Heberger sur le serveur de TMI. V0.4```')
-  }
-});
-client.on('message', message => {
-  // If the message is "what is my avatar"
-  if (message.content === 'b!avatar') {
-    // Send the user's avatar URL
-    message.reply(message.author.avatarURL);
+    //message.channel.send('```Nom: BlastyBot. Creer par Boasty. Heberger sur le serveur de TMI. V0.4
   }
 });
 client.on('message', message => {
@@ -97,7 +90,7 @@ client.on('message', message => {
 help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("Avatar")
-	  .addField("URL: (message.author.avatarURL")
+	  .setImage(message.author.avatarURL)
 	  .setFooter(message.author.username + " | b!avatar | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
   }
