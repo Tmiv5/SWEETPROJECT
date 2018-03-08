@@ -104,6 +104,8 @@ client.on('message', message => {
 	  .addField("Prochaine Update:\n Nom: Meme Update\n Date de sortie : Non-prevu\n Ajout: Plein de memes")
 	  .setFooter(message.author.username + " | b!avatar | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
+ }
+});
 	 
           
 
