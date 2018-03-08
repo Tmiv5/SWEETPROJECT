@@ -100,6 +100,8 @@ help_embed = new Discord.RichEmbed()
 	  .addField("URL: (message.author.avatarURL")
 	  .setFooter(message.author.username + " | b!avatar | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
+  }
+});
           
 
 
