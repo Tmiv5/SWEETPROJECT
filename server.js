@@ -90,6 +90,8 @@ client.on('message', message => {
   if (message.content === 'b!avatar') {
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
+  }
+});
           
 
 
