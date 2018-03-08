@@ -49,7 +49,7 @@ client.on('message', message => {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("News")
-	  .addField("08-03-18", "Ajout de la commande `b!avatar`\n`par Boasty`")
+	  .addField("08-03-18", "Ajout de la commande `b!avatar` et `b!update`\n`par Boasty`")
 	  .addField("07-03-18", "Enlevement des commandes NSFW\n`par Boasty`")
 	  .addField("07-03-18", "Sortie de la NSFW Update\n`par Boasty`")
 	  .addField("06-03-18", "Changement d'hebergeur vers Heroku\n`par Boasty`")
@@ -102,7 +102,7 @@ client.on('message', message => {
 	  .setColor("247CFF")
 	  .setTitle("Updates")
 	  .addField("Prochaine Update:\n Nom: Meme Update\n Date de sortie : Non-prevu\n Ajout: Plein de memes")
-	  .setFooter(message.author.username + " | b!avatar | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
+	  .setFooter(message.author.username + " | b!update | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
  }
 });
