@@ -92,6 +92,14 @@ client.on('message', message => {
     message.reply(message.author.avatarURL);
   }
 });
+client.on('message', message => {
+  if (message.content ==='b!avatar') {
+help_embed = new Discord.RichEmbed()
+	  .setColor("247CFF")
+	  .setTitle("Avatar")
+	  .addField("URL: (message.author.avatarURL")
+	  .setFooter(message.author.username + " | b!avatar | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
+	  message.channel.sendEmbed(help_embed);
           
 
 
