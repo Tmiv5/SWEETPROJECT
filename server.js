@@ -20,7 +20,7 @@ client.on('message', message => {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("BlastyBot")
-	  .addField("Aide", "`b!help`, `b!news`, `b!info`, `b!support`, `b!invite`")
+	  .addField("Aide", "`b!help`, `b!news`, `b!info`, `b!support`, `b!invite`, `b!avatar`")
 	  .addField("Fun", "`b!roblox`, `b!pingpong`")
 	  .setImage("https://tmiv5.weebly.com/uploads/5/5/6/5/55652459/blasty-bot-by-zenka_orig.png")
 	  .setFooter(message.author.username + " | b!help | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
@@ -85,6 +85,11 @@ client.on('message', message => {
     //message.channel.send('```Nom: BlastyBot. Creer par Boasty. Heberger sur le serveur de TMI. V0.4```')
   }
 });
+client.on('message', message => {
+  // If the message is "what is my avatar"
+  if (message.content === 'b!avatar') {
+    // Send the user's avatar URL
+    message.reply(message.author.avatarURL);
           
 
 
