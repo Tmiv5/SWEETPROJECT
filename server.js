@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 // VAR
-var BotVersion = ("1.0 bêta")
+var BotVersion = ("1.0")
 // Bot on ready
 client.on('ready', () => {
 	client.user.setPresence({ game: { name: "b!help || "+ client.guilds.size + "serveurs!" , type : 0}}); {}
@@ -109,6 +109,11 @@ client.on('message', message => {
  }
 });
 	 
+
+bot.on('guildMemberAdd', member => {
+       member.guild.defaultChannel.send(`Bienvenue sur le serveur, ${member}!`);
+       console.log(`${member.user.username} has joined`);
+});
           
 
 
