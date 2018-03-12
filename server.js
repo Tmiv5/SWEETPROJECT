@@ -115,13 +115,7 @@ bot.on('guildMemberAdd', member => {
        console.log(`${member.user.username} has joined`);
 }
 });
-  client.on('message', message => {
- if(message.content === 'b!say') {
-const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{}); 
-    message.channel.send(sayMessage);
- }
-  });
+  
 
           
 
