@@ -113,7 +113,6 @@ client.on('message', message => {
 bot.on('guildMemberAdd', member => {
        member.guild.defaultChannel.send(`Bienvenue sur le serveur, ${member}!`);
        console.log(`${member.user.username} has joined`);
-}
 });
   
 
