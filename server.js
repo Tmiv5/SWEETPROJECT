@@ -113,7 +113,16 @@ client.on('message', message => {
 bot.on('guildMemberAdd', member => {
        member.guild.defaultChannel.send(`Bienvenue sur le serveur, ${member}!`);
        console.log(`${member.user.username} has joined`);
+}
 });
+  client.on('message', message => {
+ if(message.content === 'b!say') {
+const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{}); 
+    message.channel.send(sayMessage);
+ }
+  });
+
           
 
 
