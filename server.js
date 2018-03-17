@@ -101,7 +101,9 @@ client.on('message', message => {
 	 help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("Updates")
-	  .addField("Nom: Meme Update", "Ajout: Plein de memes", "Sortie: Non-prevu")
+	  .addField("Nom", "Meme Update")
+	  .addField("Sortie", "Non-prevu")
+	  .addField("Ajouts", "Pleins de memes!")
 	  .setFooter(message.author.username + " | b!update | BlastyBot " + BotVersion + " | © BlastyBot 2018-2019")
 	  message.channel.sendEmbed(help_embed);
  }
