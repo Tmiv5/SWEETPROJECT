@@ -155,8 +155,7 @@ client.on('guildMemberAdd', member => {
     } else {
       message.reply('Tu as oublié de mentionner la personne!');
     }
-  }
-});
+  });
 
 
           
