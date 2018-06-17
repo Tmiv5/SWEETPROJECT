@@ -5,7 +5,7 @@ const client = new Discord.Client();
 var BotVersion = ("1.0")
 // Bot on ready
 client.on('ready', () => {
-	client.user.setPresence({ game: { name: "b!help || "+ client.guilds.size + "serveurs!" , type : 0}}); {}
+	client.user.setPresence({ game: { name: "FIN DU BOT DEMAIN | b!help || "+ client.guilds.size + "serveurs!" , type : 0}}); {}
   console.log("Bot ready\nConnecté a l'espace Heroku de BlastyBot");
 });
 
