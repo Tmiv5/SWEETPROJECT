@@ -15,9 +15,12 @@ client.on('message', message => {
   }
 });
 client.on('message', message => {
-  if (message.content === 'r!newversion') {
-    message.channel.send(' @everyone Apres plusieurs mois, on reviens en tant que Rainbow, nouveau prefix bientot, et peut etre que je recommence le bot ');
-  }
+	if(message.content.startsWith("send.news")) {
+	if(message.author.id != "405106840532156416") || (message.author.id != "270212361678356480") return;
+	        let args = message.content.split(' ').slice(1);
+        var angresult = args.join(' ');
+	bot.channels.get("474709177470681109").send(angresult)
+	}
 });
 
 client.on('message', message => {
