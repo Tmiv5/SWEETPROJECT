@@ -19,7 +19,7 @@ client.on('message', message => {
 	if(message.author.id != "405106840532156416") return;
 	        let args = message.content.split(' ').slice(1);
         var angresult = args.join(' ');
-	bot.channels.get("474709177470681109").send(angresult)
+	client.channels.get("474709177470681109").send(angresult)
 }
 });
 
