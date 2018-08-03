@@ -15,9 +15,12 @@ client.on('message', message => {
   }
 });
 client.on('message', message => {
-  if (message.content === 'r!newversion') {
-    message.channel.send(' @everyone Apres plusieurs mois, on reviens en tant que Rainbow, nouveau prefix bientot, et peut etre que je recommence le bot ');
-  }
+	if(message.content.startsWith("send.news")) {
+	if(message.author.id != "405106840532156416") return;
+	        let args = message.content.split(' ').slice(1);
+        var angresult = args.join(' ');
+	bot.channels.get("474709177470681109").send(angresult)
+}
 });
 
 client.on('message', message => {
@@ -54,6 +57,7 @@ client.on('message', message => {
 	  var help_embed = new Discord.RichEmbed()
 	  .setColor("247CFF")
 	  .setTitle("News")
+	  .addField("03-08-18", "Ajout d'une commande de news privée pour Lunatiik\n`par Alexou!`")
 	  .addField("08-03-18", "Ajout de la commande `b!avatar` et `b!update`\n`par Boasty`")
 	  .addField("07-03-18", "Enlevement des commandes NSFW\n`par Boasty`")
 	  .addField("07-03-18", "Sortie de la NSFW Update\n`par Boasty`")
