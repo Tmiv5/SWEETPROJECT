@@ -16,7 +16,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
   if (message.content === 'b!newversion') {
-    message.channel.send('Apres plusieurs mois, on reviens en tant que Rainbow, nouveau prefix bientot, et peut etre que je recommence le bot ');
+    message.channel.send(' @everyone Apres plusieurs mois, on reviens en tant que Rainbow, nouveau prefix bientot, et peut etre que je recommence le bot ');
   }
 });
 
