@@ -5,13 +5,18 @@ const client = new Discord.Client();
 var BotVersion = ("1.0")
 // Bot on ready
 client.on('ready', () => {
-	client.user.setPresence({ game: { name: "Damn son on revient bientot|| "+ client.guilds.size + "serveurs!" , type : 0}}); {}
+	client.user.setPresence({ game: { name: "0.1 Beta || "+ client.guilds.size + "serveurs!" , type : 0}}); {}
   console.log("Bot ready\nConnecté a l'espace Heroku de BlastyBot");
 });
 
 client.on('message', message => {
   if (message.content === 'b!pingpong') {
     message.channel.send('Ping-Pong! :ping_pong: ');
+  }
+});
+client.on('message', message => {
+  if (message.content === 'b!newversion') {
+    message.channel.send('Apres plusieurs mois, on reviens en tant que Rainbow, nouveau prefix bientot, et peut etre que je recommence le bot ');
   }
 });
 
