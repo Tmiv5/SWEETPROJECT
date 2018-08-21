@@ -11,7 +11,11 @@ client.user.setPresence({ game: { name: "1.0! || m!help " , type : 0}}); {}
 console.log("Started with no error.\nVersion 1.0\n" + client.guilds.size + " serveurs.\n" + client.users.size + " Utilisateurs\n\n\nLogs :\n\n");
 
 });
-
+client.on("guildMemberAdd", member => {
+  member.guild.channels.find("name", "bienvenue").send(`Bienvenue ${member}`)
+}
+          );
+                                
 client.on('message', message => {
   if(message.content === "Bonjour"){
     message.reply("Salut");
@@ -111,6 +115,31 @@ if(message.content.startsWith(prefix + "say")) {
 }
 });
 client.on('message', message => {
+ if(message.content.startsWith(prefix + "kick")) {
+  let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return message.channel.send("Can't find user!");
+    let kReason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+
+    let kickEmbed = new Discord.RichEmbed()
+    .setDescription("~Kick~")
+    .setColor("#e56b00")
+    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked In", message.channel)
+    .addField("Tiime", message.createdAt)
+    .addField("Reason", kReason);
+
+    let kickChannel = message.guild.channels.find(`name`, "incidents");
+    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+
+    message.guild.member(kUser).kick(kReason);
+    kickChannel.send(kickEmbed);
+
+    return;
+  }
+client.on('message', message => {
 	if(message.content.startsWith(prefix + "eval")){
 		if (message.author.id !== '405106840532156416') return message.channel.send("Tu n'as pas la permission")
 		var args = message.content.split(' ').slice(1)
@@ -131,6 +160,5 @@ client.on('message', message => {
 	
 	}
 })
-
-
-//
+}
+          );
