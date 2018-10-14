@@ -1,20 +1,42 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const bot = new Discord.Client();
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  console.log(Date.now() + " Ping");
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 100000);
+
 const util = require("util")
 var prefix = "m!";
 
 var token = 'NDc3MTAzMjYxMjc5NzE1NDAz.Dk3Qog.RLgjGOVFOBpsGbtCf5qM1gS8P_M';
 client.login(token);
 client.on('ready', () => {
-client.user.setPresence({ game: { name: "1.0! || m!help " , type : 0}}); {}
-console.log("Started with no error.\nVersion 1.0\n" + client.guilds.size + " serveurs.\n" + client.users.size + " Utilisateurs\n\n\nLogs :\n\n");
+client.user.setPresence({ game: { name: "m!help | Mars " , type : 0}}); {}
+console.log("Started with no error.\nBeta 1.0\n" + client.guilds.size + " serveurs.\n" + client.users.size + " Utilisateurs\n\n\nLogs :\n\n");
 
 });
 client.on("guildMemberAdd", member => {
-  member.guild.channels.find("name", "bienvenue").send(`Bienvenue ${member}`)
+  member.guild.channels.find("name", "bienvenue", "discutage", "join-leave", "welcome").send(`Bienvenue ${member} !`)
 }
           );
+client.on("guildMemberRemove", member => {
+  member.guild.channels.find("name", "bienvenue", "discutage", "join-leave", "welcome").send(`${member} nous a quitté..`)
+}
+          );
+client.on('message', message => {
+  if(message.content === "<@477103261279715403>"){
+    message.channel.send("Salut! Je suis Mars! Un bot actuellement en dev, fais m!help pour mes commandes!")
+  }
+});
+                                
                                 
 client.on('message', message => {
   if(message.content === "Bonjour"){
@@ -93,9 +115,9 @@ client.on('message', message => {
     
 client.on('message', message => {
   if(message.content === prefix + "ping")
-    message.channel.send(new Date().getTime() - message.createdTimestamp + " ms");
+    message.channel.send(`Pong! :ping_pong: ${Date.now() - message.createdTimestamp} ms`);
 }
-          );
+);
 client.on('message', message => {
   if(message.content === prefix + "avatar")
     var help_embed = new Discord.RichEmbed()
