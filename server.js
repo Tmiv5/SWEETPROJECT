@@ -1,6 +1,7 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
 var bot = new Discord.Client();
+const ms = require("ms");
 const http = require('http');
 const express = require('express');
 const app = express();
@@ -11,7 +12,7 @@ app.get("/", (request, response) => {
 app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 1000000);
+}, 10000);
 
 
 // This is your client. Some people call it `bot`, some people call it `self`, 
@@ -26,7 +27,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+  console.log(`Mars a demarré, avec ${client.users.size} personnes, dans ${client.channels.size} channels de ${client.guilds.size} discord.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
   client.user.setActivity(`m!help | Sur ${client.guilds.size} serveurs`);
@@ -34,7 +35,7 @@ client.on("ready", () => {
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+  console.log(`Nouveau discord: ${guild.name} (id: ${guild.id}). Ce discord a ${guild.memberCount} membres!`);
   client.user.setActivity(`m!help | Sur ${client.guilds.size} serveurs`);
    var found = false;
   guild.channels.forEach(function(channel, id) {
@@ -50,12 +51,9 @@ client.on("guildCreate", guild => {
 });
 
 
-
-
-
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+  console.log(`J'ai été retiré de: ${guild.name} et l'ID est :(id: ${guild.id})`);
   client.user.setActivity(`m!help | Sur ${client.guilds.size} serveurs`);
 });
 client.on("guildMemberAdd", member => {
@@ -106,7 +104,18 @@ client.channels.get("476050560039124992").send("Test")
 		return message.channel.send();
 	}
 
-	    client.channels.get("480884109858832404").send(`${message.author.tag} a signaler une erreur. L'erreur est: ${args[0]}`)
+	    client.channels.get("480884109858832404").send(`${message.author.tag} a signaler une erreur. L'erreur est: ${args.join(' ')}`)
+};
+  
+   if(command === "test") {
+	if (!args.length) {
+		return message.channel.send(`Tu n'as pas fournie d'erreur!, ${message.author}!`)
+	}
+	else if (args[0] === `${message}`) {
+		return message.channel.send();
+	}
+
+	    client.member.get("405106840532156416").send(`${message.author.tag} a signaler une erreur. L'erreur est: ${args.join(' ')}`)
 };
 
   
@@ -121,9 +130,9 @@ client.channels.get("476050560039124992").send("Test")
   }
   if (command === "flip") {
     	var result = Math.floor((Math.random() * 2) + 1);
-    	if (result == 1) {
+    	if (result === 1) {
     		bot.reply(message, "La piece est tomber sur pile");
-    	} else if (result == 2) {
+    	} else if (result === 2) {
     		bot.reply(message, "La piece est tomber sur face");
     	}
     }
@@ -148,7 +157,7 @@ client.channels.get("476050560039124992").send("Test")
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-    if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Modo", "Createur", "Fondateur", ].includes(r.name)) )
+  if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Modo", "Createur","Créateur", "Fondateur",].includes(r.name)) )
       return message.reply("Desolé! Tu n'as pas les permissions!");
     
     // Let's first check if we have a member and if we can kick them!
@@ -175,7 +184,7 @@ client.channels.get("476050560039124992").send("Test")
   if(command === "ban") {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Modo", "Createur", "Fondateur",].includes(r.name)) )
+   if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Modo", "Createur","Créateur", "Fondateur",].includes(r.name)) )
       return message.reply("Desolé! Tu n'as pas les permissions!");
     
     let member = message.mentions.members.first();
@@ -206,9 +215,8 @@ if(command === "help"){
   .addField("m!clear", "Efface des message!")
   .addField("m!ban", "Bannez une personne")
   .addField("m!kick", "Kickez une personne")
-  .addField("m!ban", "Bannez une personne")
   .addField("m!8ball", "Avez une question? 8ball va vous repondre! (Beta)")
-  .addField("m!reporterror", "Reportez une erreur sur le discord de Mars! (**NE METTEZ AUCUNE ESPACE. METTEZ DES TIRET (-) OU DES (_)**")
+  .addField("m!reporterror", "Reportez une erreur sur le discord de Mars!")
   .setFooter("Help - Mars")
   message.member.send(help_embed);
   message.channel.send("Regarde tes MP! :eyes:")
@@ -247,7 +255,7 @@ if(command === "help"){
     .setColor('00cbff')//mec pk ta retirer C koi cette couleur Blue Ok
     .setDescription("**Info du serveur Discord**")//tu peUx maider avec le clear? oui Mrc
     .addField("Nom du serveur", message.guild.name, false)
-    .addField("Cree le", message.guild.createdAt, true)
+    .addField("Crée le", message.guild.createdAt, true)
     .addField("Tu a rejoins le", message.member.joinedAt, true)
     .addField("Membres sur le serveur", message.guild.memberCount, false)
     .setFooter("ServerInfo - Mars")
@@ -278,8 +286,8 @@ if(command === "help"){
     // Ooooh nice, combined conditions. <3
     if(!deleteCount || deleteCount < 2 || deleteCount > 100)
       return message.reply("Mettez un nombre entre 2 et 100 pour effacer les messages");
-    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+ if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Modo", "Createur","Créateur", "Fondateur",].includes(r.name)) )
+      return message.reply("Desolé! Tu n'as pas les permissions!");
     // So we get our messages, and delete them. Simple enough, right?
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
